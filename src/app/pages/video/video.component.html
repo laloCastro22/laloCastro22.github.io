@@ -1,0 +1,35 @@
+<div class="main-container d-flex justify-content-around">
+  <div class="container-lista">
+    <div class="card mb-3" style="max-width: 540px; max-height: 400px; overflow-y: auto;">
+      <div class="text-center">
+        <h2>Lista de videos</h2>
+      </div>
+      <div class="row g-0" *ngFor="let video of lista">
+        <div class="col-md-4" *ngIf="video.snippet.resourceId.videoId">
+          <img
+            [src]="video.snippet.thumbnails.medium.url"
+            class="d-block w-100"
+            [alt]="video.snippet.description"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ video.snippet.title }}</h5>
+            <button
+              class="btn btn-outline-dark w-100"
+              (click)="videoId(video.snippet.resourceId.videoId)"
+            >
+              Ver
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex p-3" style="height: 500px;">
+    <img src="/assets/jpg/cheems.jpg" alt="Cheems">
+  </div>
+  <div  class="video-w container-video">
+    <iframe  [src]="linkVideo" frameborder="0"></iframe>
+  </div>
+</div>
